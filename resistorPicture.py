@@ -50,7 +50,7 @@ def getResistorData(resistorValue, resistorTolerance, numBands, resistorColors):
 # ==========================================
 
 
-def generatePicture(resistorData):
+def generatePicture(resistorData, outputLocation, prefix="res-"):
     resistorFont = ImageFont.truetype("formata.ttf", 133)
     resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
     bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
@@ -90,10 +90,13 @@ def generatePicture(resistorData):
     # draw = ImageDraw.Draw(resistorSymbol)
     for i in range(5):
         draw.polygon(bands[i], fill=resistorColors[resistorData[1][i]])
-    imageName = "res-{}".format(resistorData[0][0])
-    cwd = os.getcwd()
-    saveLocation = "{}\\imageExport\\{}.gif".format(cwd, imageName)
+    imageName = "{}{}".format(prefix,resistorData[0][0])
+    saveLocation = "{}/{}.gif".format(outputLocation, imageName)
     im.save(saveLocation)
+    if os.path.isfile(saveLocation):
+        return (True,saveLocation)
+    else:
+        return False
 
 
 # ==========================================
@@ -115,6 +118,8 @@ def debug(message):
 
 def main():
     csvLocation = sys.argv[1]
+    currentDir = os.getcwd()
+    cwd = "{}\\imageExport".format(currentDir)
     f = open(csvLocation, "rt")
     try:
         reader = csv.reader(f)
@@ -126,7 +131,7 @@ def main():
             resistorColors = row[3:8]
             resistorData = getResistorData(
                 resistorValue, resistorTolerance, numBands, resistorColors)
-            generatePicture(resistorData)
+            generatePicture(resistorData,cwd, "resistor_")
     finally:
         f.close()
 
