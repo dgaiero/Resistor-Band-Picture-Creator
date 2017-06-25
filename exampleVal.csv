@@ -1,0 +1,5 @@
+Resistor Value (normal),tolerence (in %),Number of bands,band0,band1,band2,band3,band4
+1k,5,4,brown,black,red,gold,none
+20k,5,4,red,black,orange,gold,none
+6.2k,10,4,blue,red,red,silver,none
+4.7M,10,4,yellow,violet,green,silver,none
