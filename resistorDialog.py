@@ -76,6 +76,7 @@ class configForm(tkinter.Tk):
         # Add the handler to logger
         self.logger = logging.getLogger()
         self.logger.addHandler(text_handler)
+        self.logger.warn("Resistor Picture Generator\n--------------------------------\nCreated by Dominic Gaiero for the CP IEEE SB website\n--------------------------------\n")
 
     def openCSV(self):
         if messagebox.askyesno("Open CSV", "The CSV file should be formatted as follows\nvalue,tolerence,num. bands,band0,band1,band2,band3,band4.\nAll colors should be lowercase.\nIf this is true, click 'Yes'. Otherwise click 'No'."):
