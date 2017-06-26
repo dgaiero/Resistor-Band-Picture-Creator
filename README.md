@@ -9,10 +9,13 @@ To run the program, use:
 ```
 python resistorDialog.py
 ```
-The CSV file is expected to be:
-```
-Resistor Value (normal),tolerence (in %),Number of bands,band0,band1,band2,band3,band4
-```
 For more information, see `exampleVal.csv`
 
-If you want to use the executable, there is a shortcut in the main directory. The script was frozen with cx_freeze.
+If you want to use the executable, there is one in the `build > exe.win-amd64-3.5` directory. It is named `CPIEEE_RESISTOR.exe`. The script was frozen with cx_freeze.
+
+To use, select a CSV file formatted as follows:
+```
+Resistor Value (normal),tolerence (in %),Number of bands
+```.
+
+Then, select any diretory to output the pictures.
