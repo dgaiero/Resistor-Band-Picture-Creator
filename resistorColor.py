@@ -1,11 +1,13 @@
 def getColorCode(value,exp,tolerance=5):
-    colorcode={-2:"silver",-1:"gold",0:"black",1:"brown",2:"red",3:"orange",4:"yellow",5:"green",6:"blue",7:"violet",8:"gray",9:"white",10:"none"}
+    colorcode={-2:"silver",-1:"gold",0:"black",1:"brown",2:"red",3:"orange",4:"yellow",5:"green",6:"blue",7:"violet",8:"grey",9:"white",10:"none"}
     valueNormalize = value/10**exp
     values = str(valueNormalize).split(".")
     if tolerance == 5:
         toleranceColor = -1
     elif tolerance == 10:
         toleranceColor = -2
+    elif tolerance == 1:
+        toleranceColor = 1
     if int(values[1]) == 0 and len(values[0]) != 1:
         print("test")
         lengthCode = len(values[0])

@@ -83,10 +83,11 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
 
     im = Image.new('RGB', (500, 500), background)
     draw = ImageDraw.Draw(im)
-    textWidth = draw.textsize(resistorData[0][0], font=resistorFont)
+    resistorText = "{}\u2126".format(resistorData[0][0])
+    textWidth = draw.textsize(resistorText, font=resistorFont)
     textLocation = 300 - textWidth[0] // 2
     draw.text((textLocation, 336),
-              resistorData[0][0], ieeeBlue, font=resistorFont)
+              resistorText, ieeeBlue, font=resistorFont)
     resistorTextWidth = draw.textsize("Y", font=resistorSymbolFont)
     resistorTextLocation = 300 - resistorTextWidth[0] // 2
     draw.text((resistorTextLocation, 50), "Y",

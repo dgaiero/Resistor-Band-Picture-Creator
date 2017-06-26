@@ -145,6 +145,9 @@ class configForm(tkinter.Tk):
                     self.logger.warn("Wrote file: {}".format(pictureStatus[1]))
         finally:
             f.close()
+        self.logger.warn("--------------------------------\n")
+        self.logger.warn("Done\n")
+        self.logger.warn("--------------------------------\n")
         if messagebox.askyesno("Open output folder", "Do you want to open the folder?"):
             os.startfile(cwd)
 
