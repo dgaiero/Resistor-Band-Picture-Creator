@@ -1,8 +1,10 @@
-# Resistor-Band-Picture-Creator
+# Work in Progress - Many BUGS!!!
 
-## Created by Dominic Gaiero for CP IEEE website
+## Resistor-Band-Picture-Creator
 
-## Usage:
+#### Created by Dominic Gaiero for CP IEEE website
+
+### Usage:
 
 To run the program, use:
 
