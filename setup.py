@@ -17,16 +17,16 @@ import sys
 base = 'Win32GUI' if sys.platform == 'win32' else None
 
 executables = [
-    Executable('resistorDialog.py',
-    targetName="CPIEEE_RESISTOR.exe",
-    base=base,
-    icon="icon.ico")
+    Executable('main.py',
+               targetName="CPIEEE_RESISTOR.exe",
+               base=base,
+               icon="icon.ico")
 ]
 
 setup(
-      name="Resistor Setup",
-      version="0.1",
-      description="Generates images from resisitor values",
-      author="Dominic Gaiero",
-      options=dict(build_exe=buildOptions),
-      executables=executables)
+    name="Resistor Setup",
+    version="0.1",
+    description="Generates images from resisitor values",
+    author="Dominic Gaiero",
+    options=dict(build_exe=buildOptions),
+    executables=executables)

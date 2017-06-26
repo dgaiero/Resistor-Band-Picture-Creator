@@ -19,6 +19,7 @@ By: Dominic Gaiero
 
 
 from PIL import Image, ImageDraw, ImageFont
+from resistorColor import *
 import os
 import csv
 import sys
@@ -37,9 +38,12 @@ DEBUG_ID = 1
 # ==========================================
 
 
-def getResistorData(resistorValue, resistorTolerance, numBands, resistorColors):
+def getResistorData(resistorValue, resistorTolerance, numBands):
+
     resistance = resistorValue
     tolerance = resistorTolerance
+    resistorInfo = getWholeValue(resistorValue)
+    resistorColors = getColorCode(resistorInfo[0],resistorInfo[1],tolerance)
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
     return resistorData
