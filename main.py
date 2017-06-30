@@ -5,6 +5,9 @@ from tkinter import scrolledtext as ScrolledText
 import tkinter
 import threading
 import logging
+import calendar
+import time
+import logging.handlers
 import copy
 from resistorPicture import *
 
@@ -30,6 +33,17 @@ class TextHandler(logging.Handler):
         # This is necessary because we can't modify the Text from other threads
         self.text.after(0, append)
 
+class RedirectText(object):
+
+    def __init__(self, text_ctrl):
+        """Constructor"""
+        self.output = text_ctrl
+
+    def write(self, string):
+        self.output(string)
+
+    def flush(self):
+        pass
 
 class configForm(tkinter.Tk):
 
@@ -89,8 +103,21 @@ class configForm(tkinter.Tk):
         # Add the handler to logger
         self.logger = logging.getLogger()
         self.logger.addHandler(text_handler)
-        self.logger.warn(
-            "Resistor Picture Generator\n--------------------------------\nCreated by Dominic Gaiero for the CP IEEE SB website\n--------------------------------\n")
+        currTime = int(time.time())
+        logFileName = "{}\\logs\\CPIEEE_RESISTOR_{}.log".format(os.getcwd(),currTime)
+        fh = logging.FileHandler(logFileName, 'a')
+        formatter = logging.Formatter('%(asctime)s %(message)s')
+        fh.setFormatter(formatter)
+        fh.setLevel(logging.WARNING)
+        self.logger.setLevel(logging.WARNING)
+        self.logger.addHandler(fh)
+        self.logger.warning(
+            "Resistor Picture Generator\n--------------------------------\n"
+            "Created by Dominic Gaiero for the CP IEEE SB website\n--------------------------------\n")
+        self.logger.warning("Log File located at: {}".format(logFileName))
+
+        redir = RedirectText(self.logger.warning)
+        sys.stdout = redir
 
     def openCSV(self):
         if messagebox.askyesno("Open CSV", "The CSV file should be formatted as follows\nvalue,tolerence,num. bands.\nIf this is true, click 'Yes'. Otherwise click 'No'."):
@@ -98,26 +125,28 @@ class configForm(tkinter.Tk):
                 initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
             self.csvFileName = self.filename
             csvFile = ("CSV Location: {}".format(self.csvFileName))
-            self.logger.warn("CSV Location: {}".format(self.csvFileName))
+            self.logger.warning("CSV Location: {}".format(self.csvFileName))
             self.csvTest()
 
     def openDirectory(self):
         # from tkinter.filedialog import askdirectory
         self.directoryLocation = askdirectory(
             parent=self, initialdir="/", title='Please select a directory')
-        print(self.directoryLocation)
-        self.logger.warn(("Directory Location: {}").format(
+        # print(self.directoryLocation)
+        self.logger.warning(("Directory Location: {}").format(
             self.directoryLocation))
 
     def processFiles(self):
         try:
-            print(self.directoryLocation)
-            print(self.filePrefixTxt.get())
+            self.directoryLocation
+            self.filePrefixTxt.get()
+            # print(self.directoryLocation)
+            # print(self.filePrefixTxt.get())
         except AttributeError:
             messagebox.showerror(
                 "Error", "Data entered is invalid. Try again.")
-            self.logger.warn("Data entered is invalid. Try again.")
-            print("Error")
+            self.logger.warning("Data entered is invalid. Try again.")
+            # print("Error")
             return
         csvLocation = self.csvFileName
         cwd = self.directoryLocation
@@ -132,22 +161,22 @@ class configForm(tkinter.Tk):
                 numBands = row[2]
                 resistorData = getResistorData(
                     resistorValue, resistorTolerance, numBands)
-                self.logger.warn(
+                self.logger.warning(
                     "--------------------------------\nGenerated data for:")
-                self.logger.warn(
+                self.logger.warning(
                     "|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|".format("Value","Tolerence","Band 1","Band 2","Band 3","Band 4","Band 5")
                 )
-                self.logger.warn(
+                self.logger.warning(
                     "|{:>8}|{:>8}%|{:>8}|{:>8}|{:>8}|{:>8}|{:>8}|".format(resistorData[0][0],resistorData[0][1],resistorData[1][0],resistorData[1][1],resistorData[1][2],resistorData[1][3],resistorData[1][4])
                 )
                 pictureStatus = generatePicture(resistorData, cwd, prefix)
                 if pictureStatus[0]:
-                    self.logger.warn("Wrote file: {}".format(pictureStatus[1]))
+                    self.logger.warning("Wrote file: {}".format(pictureStatus[1]))
         finally:
             f.close()
-        self.logger.warn("--------------------------------\n")
-        self.logger.warn("Done\n")
-        self.logger.warn("--------------------------------\n")
+        self.logger.warning("--------------------------------\n")
+        self.logger.warning("Done\n")
+        self.logger.warning("--------------------------------\n")
         if messagebox.askyesno("Open output folder", "Do you want to open the folder?"):
             os.startfile(cwd)
 
@@ -155,19 +184,19 @@ class configForm(tkinter.Tk):
         f = open(self.csvFileName, "rt")
         header = f.readline()
         header=header.strip()
-        # self.logger.warn("CSV Header:\n{}".format(header))
+        # self.logger.warning("CSV Header:\n{}".format(header))
         headerMore = header.split(",")
         headerString = '|'
         # print(tuple(headerMore))
         for i in range(len(headerMore)):
             headerString+="{:>10s}|"
         headerString=headerString.strip()
-        self.logger.warn(headerString.format(*tuple(headerMore)))
+        self.logger.warning(headerString.format(*tuple(headerMore)))
         line1 = f.readline().strip()
         line1More = line1.split(",")
-        self.logger.warn(headerString.format(*tuple(line1More)))
-        # self.logger.warn("CSV Line 1:\n{}".format(line1))
-        self.logger.warn("--------------------------------\n")
+        self.logger.warning(headerString.format(*tuple(line1More)))
+        # self.logger.warning("CSV Line 1:\n{}".format(line1))
+        self.logger.warning("--------------------------------\n")
 
 
 if __name__ == '__main__':
