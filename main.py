@@ -1,3 +1,9 @@
+# Project: Resistor-Band-Picture-Creator
+# Author: Dominic Gaiero
+# File: main.py
+# This program outputs an image of a resistor's color bands and was written
+# for IEEE's Cal Poly Student Branch and their online parts website.
+
 from tkinter import filedialog
 from tkinter.filedialog import askdirectory
 from tkinter import messagebox

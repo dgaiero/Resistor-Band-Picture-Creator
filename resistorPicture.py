@@ -1,3 +1,8 @@
+# Project: Resistor-Band-Picture-Creator
+# Author: Dominic Gaiero
+# File: resistorColor.py
+# These functions generate the picture of the resistor
+
 '''
 Resistor Picture Generator
 
@@ -12,12 +17,7 @@ make sure you have imageExport as a directory
 By: Dominic Gaiero
 '''
 
-
-# ==========================================
 # Import Libraries
-# ==========================================
-
-
 from PIL import Image, ImageDraw, ImageFont
 from resistorColor import *
 import os
@@ -25,21 +25,16 @@ import csv
 import sys
 
 
-# ==========================================
 # Define Debug Variable
-# ==========================================
-
-
 DEBUG_ID = 0
 
 
-# ==========================================
-# Format resistor data
-# ==========================================
-
-
+# A resistorValue is an __, representing __
+# A resistorTolerance is an __, representing __
+# A numBands is an __, representing __
+# -> arraylist
+# This function formats resistor data
 def getResistorData(resistorValue, resistorTolerance, numBands):
-
     resistance = resistorValue
     tolerance = resistorTolerance
     resistorInfo = getWholeValue(resistorValue)
@@ -48,12 +43,11 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
     debug(resistorData)
     return resistorData
 
-
-# ==========================================
-# generate picture based on resistor data
-# ==========================================
-
-
+# A resistorData is an arraylist, representing __
+# A outputLocation is an __, representing __
+# A prefix is a str, representing __
+# ->
+# This functions generates the picture
 def generatePicture(resistorData, outputLocation, prefix="res-"):
     resistorFont = ImageFont.truetype("formata.ttf", 133)
     resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
@@ -104,11 +98,9 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
         return False
 
 
-# ==========================================
-# Turn debug mode on or off
-# ==========================================
-
-
+# A message is a str, representing __
+# ->
+# This function turns debug on/off
 def debug(message):
     if DEBUG_ID == 0:
         return()
@@ -116,33 +108,31 @@ def debug(message):
         print(message)
 
 
-# ==========================================
-# read and parse csv file
-# ==========================================
-
-
+ # -> picture
+# This function actually reads the csv data and runs the functions necessary to
+# generate the output
 def main():
-    csvLocation = sys.argv[1]
-    currentDir = os.getcwd()
-    cwd = "{}\\imageExport".format(currentDir)
-    f = open(csvLocation, "rt")
     try:
-        reader = csv.reader(f)
-        next(reader)
-        for row in reader:
-            resistorValue = row[0]
-            resistorTolerance = float(row[1])
-            numBands = row[2]
-            resistorColors = row[3:8]
-            resistorData = getResistorData(
-                resistorValue, resistorTolerance, numBands, resistorColors)
-            generatePicture(resistorData,cwd, "resistor_")
-    finally:
-        f.close()
+        csvLocation = sys.argv[1]
+        currentDir = os.getcwd()
+        cwd = "{}\\imageExport".format(currentDir)
+        f = open(csvLocation, "rt")
+        try:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                resistorValue = row[0]
+                resistorTolerance = float(row[1])
+                numBands = row[2]
+                resistorColors = row[3:8]
+                resistorData = getResistorData(
+                    resistorValue, resistorTolerance, numBands, resistorColors)
+                generatePicture(resistorData,cwd, "resistor_")
+        finally:
+            f.close()
+    except: # Deals with bad input
+        print("Usage: resistorPicture.py FILE.csv")
+        sys.exit()
 
-
-# ==========================================
-# Run main
-# ==========================================
 if __name__ == "__main__":
     main()

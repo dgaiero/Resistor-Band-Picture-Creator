@@ -1,4 +1,15 @@
+# Project: Resistor-Band-Picture-Creator
+# Author: Dominic Gaiero
+# File: resistorColor.py
+# These functions return the color bands of the resistor
+
+# A value is an __, representing __
+# A exp is an __, representing __
+# A tolerance is an __, representing __
+# ->
+# This function takes a value, exp, and optional tolerance and returns __
 def getColorCode(value,exp,tolerance=5):
+    # Define what numbers correspond to what color for a resistor
     colorcode={-2:"silver",-1:"gold",0:"black",1:"brown",2:"red",3:"orange",4:"yellow",5:"green",6:"blue",7:"violet",8:"grey",9:"white",10:"none"}
     valueNormalize = value/10**exp
     values = str(valueNormalize).split(".")
@@ -46,6 +57,9 @@ def getColorCode(value,exp,tolerance=5):
     print(bands)
     return bands
 
+# A value is __, representing __
+# ->
+# This function takes a value and returns
 def getWholeValue(value):
 	exp={"f":-15,"p":-12,"n":-9,"u":-6,"m":-3,"":0,"k":3,"M":6,"G":9,"T":12,"P":15}
 	modifier=value[-1]
@@ -55,7 +69,6 @@ def getWholeValue(value):
 		modifier=""
 	value=int(float(value)*10**exp[modifier])
 	return value, exp[modifier]
-
 
 if __name__ == "__main__":
     resistorValue="20k"
