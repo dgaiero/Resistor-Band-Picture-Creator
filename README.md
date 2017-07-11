@@ -9,7 +9,7 @@
 To run the program, use:
 
 ```
-python resistorDialog.py
+python main.py
 ```
 For more information, see `exampleVal.csv`
 
