@@ -187,6 +187,7 @@ class configForm(tkinter.Tk):
             os.startfile(cwd)
 
     def csvTest(self):
+        raise NameError
         f = open(self.csvFileName, "rt")
         header = f.readline()
         header=header.strip()
@@ -206,5 +207,9 @@ class configForm(tkinter.Tk):
 
 
 if __name__ == '__main__':
-    form = configForm()
-    form.mainloop()
+    try:
+        form = configForm()
+        form.mainloop()
+    except:
+        if messagebox.askyesno("Unstable State", "The application has entered an unstable state. It is recommended to quit. Do you want to quit?"):
+            os._exit
