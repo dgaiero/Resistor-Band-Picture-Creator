@@ -29,9 +29,9 @@ import sys
 DEBUG_ID = 0
 
 
-# A resistorValue is an __, representing __
-# A resistorTolerance is an __, representing __
-# A numBands is an __, representing __
+# A resistorValue is an unsigned int, representing the normalized resistor value
+# A resistorTolerance is a signed int, representing the resistor tolerance
+# A numBands is an unsigned int, representing the number of resistor bands
 # -> arraylist
 # This function formats resistor data
 def getResistorData(resistorValue, resistorTolerance, numBands):
@@ -43,13 +43,13 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
     debug(resistorData)
     return resistorData
 
-# A resistorData is an arraylist, representing __
-# A outputLocation is an __, representing __
-# A prefix is a str, representing __
+# A resistorData is an arraylist, representing the resistor value, tolerance and number of bands
+# A outputLocation is a string, representing the output directory
+# A prefix is a str, representing the file prefix
 # ->
 # This functions generates the picture
 def generatePicture(resistorData, outputLocation, prefix="res-"):
-    resistorFont = ImageFont.truetype("formata.ttf", 133)
+    resistorFont = ImageFont.truetype("formata.otf", 133)
     resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
     bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
              ((0, 100), (0, 200), (100, 200), (100, 100)),
@@ -77,7 +77,7 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
 
     im = Image.new('RGB', (500, 500), background)
     draw = ImageDraw.Draw(im)
-    resistorText = "{}\u2126".format(resistorData[0][0])
+    resistorText = u"{}\u2126".format(resistorData[0][0])
     textWidth = draw.textsize(resistorText, font=resistorFont)
     textLocation = 300 - textWidth[0] // 2
     draw.text((textLocation, 336),
@@ -98,7 +98,7 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
         return False
 
 
-# A message is a str, representing __
+# A message is a str, representing a debug message
 # ->
 # This function turns debug on/off
 def debug(message):

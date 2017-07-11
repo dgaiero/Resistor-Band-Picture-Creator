@@ -3,11 +3,11 @@
 # File: resistorColor.py
 # These functions return the color bands of the resistor
 
-# A value is an __, representing __
-# A exp is an __, representing __
-# A tolerance is an __, representing __
+# A value is an unsigned int, representing the resistor value (normalized at ohms)
+# A exp is a signed int, representing the exponent of the resistor
+# A tolerance is an unsigned int, representing the tolerance of the resistor
 # ->
-# This function takes a value, exp, and optional tolerance and returns __
+# This function takes a value, exp, and optional tolerance and returns a tuple with the color bands
 def getColorCode(value,exp,tolerance=5):
     # Define what numbers correspond to what color for a resistor
     colorcode={-2:"silver",-1:"gold",0:"black",1:"brown",2:"red",3:"orange",4:"yellow",5:"green",6:"blue",7:"violet",8:"grey",9:"white",10:"none"}
@@ -57,9 +57,9 @@ def getColorCode(value,exp,tolerance=5):
     print(bands)
     return bands
 
-# A value is __, representing __
+# A value is a string, representing the un-normalized resistor value
 # ->
-# This function takes a value and returns
+# This function takes a value and returns a normalized value and an exponent
 def getWholeValue(value):
 	exp={"f":-15,"p":-12,"n":-9,"u":-6,"m":-3,"":0,"k":3,"M":6,"G":9,"T":12,"P":15}
 	modifier=value[-1]
