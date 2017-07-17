@@ -1,0 +1,338 @@
+2017-07-17 13:29:17,477 Resistor Picture Generator
+--------------------------------
+Created by Dominic Gaiero for the CP IEEE SB website
+--------------------------------
+
+2017-07-17 13:29:17,477 Log File located at: C:\Users\pangj\Documents\GitHub\Resistor-Band-Picture-Creator\logs\CPIEEE_RESISTOR_1500323357.log
+2017-07-17 13:29:29,452 CSV Location: C:/Users/pangj/Documents/GitHub/Resistor-Band-Picture-Creator/exampleVal.csv
+2017-07-17 13:29:38,623 Directory Location: C:/Users/pangj/Desktop/New folder
+2017-07-17 13:29:39,329 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:29:39,330 
+
+2017-07-17 13:29:39,330 --------------------------------
+Generated data for:
+2017-07-17 13:29:39,330 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:29:39,331 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:29:39,409 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:29:39,409 test
+2017-07-17 13:29:39,410 
+
+2017-07-17 13:29:39,410 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:29:39,410 
+
+2017-07-17 13:29:39,410 --------------------------------
+Generated data for:
+2017-07-17 13:29:39,410 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:29:39,411 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:29:39,460 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:29:39,461 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:29:39,461 
+
+2017-07-17 13:29:39,462 --------------------------------
+Generated data for:
+2017-07-17 13:29:39,462 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:29:39,462 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:29:39,513 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:29:39,514 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:29:39,514 
+
+2017-07-17 13:29:39,514 --------------------------------
+Generated data for:
+2017-07-17 13:29:39,514 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:29:39,515 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:29:39,561 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:29:39,561 --------------------------------
+
+2017-07-17 13:29:39,561 Done
+
+2017-07-17 13:29:39,562 --------------------------------
+
+2017-07-17 13:46:19,679 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:46:19,679 
+
+2017-07-17 13:46:19,679 --------------------------------
+Generated data for:
+2017-07-17 13:46:19,679 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:46:19,679 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:46:19,723 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:46:19,724 test
+2017-07-17 13:46:19,724 
+
+2017-07-17 13:46:19,724 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:46:19,724 
+
+2017-07-17 13:46:19,724 --------------------------------
+Generated data for:
+2017-07-17 13:46:19,725 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:46:19,725 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:46:19,770 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:46:19,770 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:46:19,771 
+
+2017-07-17 13:46:19,771 --------------------------------
+Generated data for:
+2017-07-17 13:46:19,771 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:46:19,771 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:46:19,812 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:46:19,813 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:46:19,813 
+
+2017-07-17 13:46:19,814 --------------------------------
+Generated data for:
+2017-07-17 13:46:19,814 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:46:19,815 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:46:19,861 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:46:19,861 --------------------------------
+
+2017-07-17 13:46:19,861 Done
+
+2017-07-17 13:46:19,862 --------------------------------
+
+2017-07-17 13:47:23,793 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:47:23,793 
+
+2017-07-17 13:47:23,793 --------------------------------
+Generated data for:
+2017-07-17 13:47:23,793 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:23,793 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:47:23,832 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:47:23,832 test
+2017-07-17 13:47:23,832 
+
+2017-07-17 13:47:23,833 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:47:23,833 
+
+2017-07-17 13:47:23,833 --------------------------------
+Generated data for:
+2017-07-17 13:47:23,833 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:23,833 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:47:23,870 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:47:23,870 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:47:23,871 
+
+2017-07-17 13:47:23,871 --------------------------------
+Generated data for:
+2017-07-17 13:47:23,871 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:23,871 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:47:23,911 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:47:23,911 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:47:23,912 
+
+2017-07-17 13:47:23,912 --------------------------------
+Generated data for:
+2017-07-17 13:47:23,912 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:23,912 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:47:23,954 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:47:23,954 --------------------------------
+
+2017-07-17 13:47:23,954 Done
+
+2017-07-17 13:47:23,955 --------------------------------
+
+2017-07-17 13:47:40,232 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:47:40,233 
+
+2017-07-17 13:47:40,233 --------------------------------
+Generated data for:
+2017-07-17 13:47:40,233 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:40,233 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:47:40,274 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:47:40,274 test
+2017-07-17 13:47:40,274 
+
+2017-07-17 13:47:40,274 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:47:40,274 
+
+2017-07-17 13:47:40,275 --------------------------------
+Generated data for:
+2017-07-17 13:47:40,275 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:40,275 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:47:40,314 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:47:40,314 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:47:40,314 
+
+2017-07-17 13:47:40,315 --------------------------------
+Generated data for:
+2017-07-17 13:47:40,315 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:40,315 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:47:40,356 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:47:40,357 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:47:40,357 
+
+2017-07-17 13:47:40,357 --------------------------------
+Generated data for:
+2017-07-17 13:47:40,357 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:47:40,358 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:47:40,397 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:47:40,398 --------------------------------
+
+2017-07-17 13:47:40,398 Done
+
+2017-07-17 13:47:40,398 --------------------------------
+
+2017-07-17 13:48:00,709 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:48:00,709 
+
+2017-07-17 13:48:00,709 --------------------------------
+Generated data for:
+2017-07-17 13:48:00,709 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:00,709 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:48:00,749 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:48:00,750 test
+2017-07-17 13:48:00,750 
+
+2017-07-17 13:48:00,750 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:48:00,750 
+
+2017-07-17 13:48:00,750 --------------------------------
+Generated data for:
+2017-07-17 13:48:00,751 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:00,751 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:48:00,794 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:48:00,795 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:48:00,795 
+
+2017-07-17 13:48:00,795 --------------------------------
+Generated data for:
+2017-07-17 13:48:00,795 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:00,796 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:48:00,839 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:48:00,839 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:48:00,839 
+
+2017-07-17 13:48:00,840 --------------------------------
+Generated data for:
+2017-07-17 13:48:00,840 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:00,841 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:48:00,886 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:48:00,886 --------------------------------
+
+2017-07-17 13:48:00,887 Done
+
+2017-07-17 13:48:00,887 --------------------------------
+
+2017-07-17 13:48:12,847 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:48:12,847 
+
+2017-07-17 13:48:12,847 --------------------------------
+Generated data for:
+2017-07-17 13:48:12,847 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:12,847 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:48:12,887 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:48:12,887 test
+2017-07-17 13:48:12,887 
+
+2017-07-17 13:48:12,888 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:48:12,888 
+
+2017-07-17 13:48:12,888 --------------------------------
+Generated data for:
+2017-07-17 13:48:12,888 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:12,888 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:48:12,932 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:48:12,933 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:48:12,933 
+
+2017-07-17 13:48:12,933 --------------------------------
+Generated data for:
+2017-07-17 13:48:12,933 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:12,933 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:48:12,976 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:48:12,977 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:48:12,977 
+
+2017-07-17 13:48:12,977 --------------------------------
+Generated data for:
+2017-07-17 13:48:12,977 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:12,977 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:48:13,019 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:48:13,019 --------------------------------
+
+2017-07-17 13:48:13,020 Done
+
+2017-07-17 13:48:13,020 --------------------------------
+
+2017-07-17 13:48:53,238 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:48:53,238 
+
+2017-07-17 13:48:53,239 --------------------------------
+Generated data for:
+2017-07-17 13:48:53,239 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:53,239 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:48:53,280 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:48:53,280 test
+2017-07-17 13:48:53,280 
+
+2017-07-17 13:48:53,280 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:48:53,281 
+
+2017-07-17 13:48:53,281 --------------------------------
+Generated data for:
+2017-07-17 13:48:53,281 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:53,281 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:48:53,321 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:48:53,321 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:48:53,322 
+
+2017-07-17 13:48:53,322 --------------------------------
+Generated data for:
+2017-07-17 13:48:53,322 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:53,322 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:48:53,359 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:48:53,360 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:48:53,360 
+
+2017-07-17 13:48:53,360 --------------------------------
+Generated data for:
+2017-07-17 13:48:53,360 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:48:53,360 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:48:53,402 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:48:53,402 --------------------------------
+
+2017-07-17 13:48:53,402 Done
+
+2017-07-17 13:48:53,402 --------------------------------
+
+2017-07-17 13:49:04,575 CSV Location: C:/Users/pangj/Documents/GitHub/Resistor-Band-Picture-Creator/exampleVal.csv
+2017-07-17 13:49:09,748 Directory Location: C:/Users/pangj/Desktop/New folder
+2017-07-17 13:49:10,648 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:49:10,649 
+
+2017-07-17 13:49:10,649 --------------------------------
+Generated data for:
+2017-07-17 13:49:10,649 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:49:10,649 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:49:10,684 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:49:10,685 test
+2017-07-17 13:49:10,685 
+
+2017-07-17 13:49:10,685 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:49:10,685 
+
+2017-07-17 13:49:10,685 --------------------------------
+Generated data for:
+2017-07-17 13:49:10,686 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:49:10,686 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:49:10,729 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:49:10,729 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:49:10,729 
+
+2017-07-17 13:49:10,729 --------------------------------
+Generated data for:
+2017-07-17 13:49:10,729 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:49:10,729 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:49:10,770 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:49:10,770 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:49:10,771 
+
+2017-07-17 13:49:10,771 --------------------------------
+Generated data for:
+2017-07-17 13:49:10,771 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:49:10,771 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:49:10,814 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:49:10,815 --------------------------------
+
+2017-07-17 13:49:10,815 Done
+
+2017-07-17 13:49:10,815 --------------------------------
+

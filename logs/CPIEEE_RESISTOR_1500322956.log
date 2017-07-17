@@ -1,0 +1,49 @@
+2017-07-17 13:22:36,094 Resistor Picture Generator
+--------------------------------
+Created by Dominic Gaiero for the CP IEEE SB website
+--------------------------------
+
+2017-07-17 13:22:36,094 Log File located at: C:\Users\pangj\Documents\GitHub\Resistor-Band-Picture-Creator\logs\CPIEEE_RESISTOR_1500322956.log
+2017-07-17 13:22:49,342 CSV Location: C:/Users/pangj/Documents/GitHub/Resistor-Band-Picture-Creator/exampleVal.csv
+2017-07-17 13:23:01,920 Directory Location: C:/Users/pangj/Desktop/New folder
+2017-07-17 13:23:02,766 ('brown', 'black', 'red', 'gold', 'none')
+2017-07-17 13:23:02,766 
+
+2017-07-17 13:23:02,767 --------------------------------
+Generated data for:
+2017-07-17 13:23:02,767 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:23:02,767 |      1k|       4%|   brown|   black|     red|    gold|    none|
+2017-07-17 13:23:02,999 Wrote file: C:/Users/pangj/Desktop/New folder/1k.gif
+2017-07-17 13:23:02,999 test
+2017-07-17 13:23:02,999 
+
+2017-07-17 13:23:03,000 ('red', 'black', 'orange', 'gold', 'none')
+2017-07-17 13:23:03,000 
+
+2017-07-17 13:23:03,000 --------------------------------
+Generated data for:
+2017-07-17 13:23:03,000 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:23:03,000 |     20k|       4%|     red|   black|  orange|    gold|    none|
+2017-07-17 13:23:03,049 Wrote file: C:/Users/pangj/Desktop/New folder/20k.gif
+2017-07-17 13:23:03,049 ('blue', 'red', 'red', 'silver', 'none')
+2017-07-17 13:23:03,049 
+
+2017-07-17 13:23:03,050 --------------------------------
+Generated data for:
+2017-07-17 13:23:03,050 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:23:03,050 |    6.2k|       4%|    blue|     red|     red|  silver|    none|
+2017-07-17 13:23:03,098 Wrote file: C:/Users/pangj/Desktop/New folder/6.2k.gif
+2017-07-17 13:23:03,099 ('yellow', 'violet', 'green', 'silver', 'none')
+2017-07-17 13:23:03,099 
+
+2017-07-17 13:23:03,099 --------------------------------
+Generated data for:
+2017-07-17 13:23:03,099 |   Value|Tolerence|  Band 1|  Band 2|  Band 3|  Band 4|  Band 5|
+2017-07-17 13:23:03,099 |    4.7M|       4%|  yellow|  violet|   green|  silver|    none|
+2017-07-17 13:23:03,148 Wrote file: C:/Users/pangj/Desktop/New folder/4.7M.gif
+2017-07-17 13:23:03,148 --------------------------------
+
+2017-07-17 13:23:03,148 Done
+
+2017-07-17 13:23:03,149 --------------------------------
+

@@ -49,14 +49,16 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
 # ->
 # This functions generates the picture
 def generatePicture(resistorData, outputLocation, prefix="res-"):
+    # Define fonts
     resistorFont = ImageFont.truetype("formata.otf", 133)
     resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
+    # Define band coordinates
     bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
              ((0, 100), (0, 200), (100, 200), (100, 100)),
              ((0, 200), (0, 300), (100, 300), (100, 200)),
              ((0, 300), (0, 400), (100, 400), (100, 300)),
              ((0, 400), (0, 5000), (100, 500), (100, 400))]
-
+    # Define colors
     resistorColors = {
         'black': (0, 0, 0),
         'brown': (142, 40, 0),
@@ -75,7 +77,8 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
     ieeeBlue = (0, 102, 153)
     background = (234, 234, 234)
 
-    im = Image.new('RGB', (500, 500), background)
+    # Drawing
+    im = Image.new('RGB', (500, 500), background) # Defines canvas
     draw = ImageDraw.Draw(im)
     resistorText = u"{}\u2126".format(resistorData[0][0])
     textWidth = draw.textsize(resistorText, font=resistorFont)
