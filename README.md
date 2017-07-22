@@ -1,8 +1,12 @@
-# Work in Progress - Many BUGS!!!
+# Resistor-Band-Picture-Creator
 
-## Resistor-Band-Picture-Creator
+## NOTE: Work in Progress
 
 #### Created by Dominic Gaiero for CP IEEE website
+
+### Description:
+
+This program outputs an image of a resistor's color bands. It takes input from a CSV files and outputs .gif images.
 
 ### Usage:
 
