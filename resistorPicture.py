@@ -58,7 +58,7 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
              ((0, 200), (0, 300), (100, 300), (100, 200)),
              ((0, 300), (0, 400), (100, 400), (100, 300)),
              ((0, 400), (0, 5000), (100, 500), (100, 400))]
-    # Define colors
+    # Define color dictionary
     resistorColors = {
         'black': (0, 0, 0),
         'brown': (142, 40, 0),

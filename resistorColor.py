@@ -9,8 +9,8 @@
 # ->
 # This function takes a value, exp, and optional tolerance and returns a tuple with the color bands
 def getColorCode(value,exp,tolerance=5):
-    # Define what numbers correspond to what color for a resistor
-    colorcode={-2:"silver",-1:"gold",0:"black",1:"brown",2:"red",3:"orange",4:"yellow",5:"green",6:"blue",7:"violet",8:"grey",9:"white",10:"none"}
+    # Dictionary for color codes
+    colorcode={-2:"silver", -1:"gold", 0:"black", 1:"brown", 2:"red", 3:"orange", 4:"yellow", 5:"green", 6:"blue", 7:"violet", 8:"grey", 9:"white", 10:"none"}
     valueNormalize = value/10**exp
     values = str(valueNormalize).split(".")
     # Sets tolerance color band
@@ -72,6 +72,7 @@ def getWholeValue(value):
 	return value, exp[modifier]
 
 if __name__ == "__main__":
+    # Default test value
     resistorValue="20k"
     resistorData = getWholeValue(resistorValue)
     getColorCode(resistorData[0],resistorData[1])
