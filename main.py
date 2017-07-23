@@ -88,14 +88,23 @@ class configForm(tkinter.Tk):
         self.filePrefixTxt.grid(
             row=0, column=1, sticky="W", pady=3)
 
+        self.multiplierLbl = tkinter.Label(self.frame1, text="Multiplier:")
+        self.multiplierLbl.grid(
+            row=1, column=0, sticky='E', padx=5, pady=2)
+
+        self.multiplierTxt = tkinter.Entry(self.frame1)
+        self.multiplierTxt.insert(0,"500")
+        self.multiplierTxt.grid(
+            row=1, column=1, sticky="W", pady=3)
+
         self.selectInputCSV = tkinter.Button(
             self.frame1, text="CSV File Location", command=self.openCSV)
-        self.selectInputCSV.grid(row=1, column=0, sticky='N', padx=5, pady=2)
+        self.selectInputCSV.grid(row=2, column=0, sticky='N', padx=5, pady=2)
 
         self.selectOutputDirectory = tkinter.Button(
             self.frame1, text="Output Directory", command=self.openDirectory)
         self.selectOutputDirectory.grid(
-            row=1, column=1, sticky='NW', padx=5, pady=2)
+            row=2, column=1, sticky='NW', padx=5, pady=2)
 
         self.processFile = tkinter.Button(
             self.frame1, text="Process Files", command=self.processFiles)
@@ -167,6 +176,7 @@ class configForm(tkinter.Tk):
         csvLocation = self.csvFileName
         cwd = self.directoryLocation
         prefix = self.filePrefixTxt.get()
+        multiplier = int(self.multiplierTxt.get())
         f = open(csvLocation, "rt")
         try:
             reader = csv.reader(f)
@@ -185,7 +195,7 @@ class configForm(tkinter.Tk):
                 self.logger.warning(
                     "|{:>8}|{:>8}%|{:>8}|{:>8}|{:>8}|{:>8}|{:>8}|".format(resistorData[0][0],resistorData[0][1],resistorData[1][0],resistorData[1][1],resistorData[1][2],resistorData[1][3],resistorData[1][4])
                 )
-                pictureStatus = generatePicture(resistorData, cwd, prefix)
+                pictureStatus = generatePicture(resistorData, cwd, multiplier, prefix)
                 if pictureStatus[0]:
                     self.logger.warning("Wrote file: {}".format(pictureStatus[1]))
         finally:

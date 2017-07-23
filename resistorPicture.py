@@ -50,18 +50,11 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
 # This functions generates the picture
 
 
-def generatePicture(resistorData, outputLocation, prefix="res-"):
-    multiplier = 500
+def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
     # Define fonts
-    resistorFont = ImageFont.truetype("formata.otf", 133)
-    resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
+    resistorFont = ImageFont.truetype("formata.otf", int(multiplier*0.3))
+    resistorSymbolFont = ImageFont.truetype("cb.ttf", int(multiplier*0.8))
     # Define band coordinates
-    # bands = [((0, 0), (0.2*multiplier,0), (0.2*multiplier, 0.2*multiplier), (0,0.2*multiplier)),
-    #          ((0.2*multiplier, 0), (0.4*multiplier,0), (0.4*multiplier, 0.2*multiplier), (0.2,0.2*multiplier)),
-    #          ((0.4*multiplier, 0), (0.6*multiplier,0), (0.6*multiplier, 0.2*multiplier), (0.4,0.2*multiplier)),
-    #          ((0.6*multiplier, 0), (0.8*multiplier,0), (0.8*multiplier, 0.2*multiplier), (0.6,0.2*multiplier)),
-    #          ((0.8*multiplier, 0), (1*multiplier,0), (1*multiplier, 0.2*multiplier), (0.8,0.2*multiplier))]
-
     bands = [((0, 0), (0, 0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier), (0.2 * multiplier, 0)),
              ((0.2 * multiplier, 0), (0.4 * multiplier, 0), (0.4 * multiplier,
                                                              0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier)),
@@ -71,11 +64,6 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
                                                              0.2 * multiplier), (0.6 * multiplier, 0.2 * multiplier)),
              ((0.8 * multiplier, 0), (1 * multiplier, 0), (1 * multiplier, 0.2 * multiplier), (0.8 * multiplier, 0.2 * multiplier))]
 
-    # bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
-    #          ((100, 0), (200, 0), (200, 100), (100, 100)),
-    #          ((200, 0), (300, 0), (300, 100), (200, 100)),
-    #          ((300,0), (400, 0), (400, 100), (300, 100)),
-    #          ((400, 0), (500, 0), (500, 100), (400, 100))]
     # Define color dictionary
     resistorColors = {
         'black': (0, 0, 0),
