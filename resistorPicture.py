@@ -38,10 +38,15 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
     resistance = resistorValue
     tolerance = resistorTolerance
     resistorInfo = getWholeValue(resistorValue)
-    resistorColors = getColorCode(resistorInfo[0], resistorInfo[1], tolerance)
+    if numBands = 4:
+        resistorColors = getFourBands(resistorInfo[0], resistorInfo[1], tolerance)
+    elif numBands = 5:
+        resistorColors = getFiveBands(resistorInfo[0], resistorInfo[1], tolerance)
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
     return resistorData
+
+
 
 # A resistorData is an arraylist, representing the resistor value, tolerance and number of bands
 # A outputLocation is a string, representing the output directory
