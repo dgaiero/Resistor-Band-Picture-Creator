@@ -15,6 +15,7 @@ import calendar
 import time
 import logging.handlers
 import copy
+import traceback
 from resistorPicture import *
 
 
@@ -65,6 +66,7 @@ class configForm(tkinter.Tk):
 
         self.resizable(0, 0)
         self.wm_title('Resistor Config')
+        self.report_callback_exception = self.show_error
 
         cwd = os.getcwd()
         iconLocation = "{}\\icon.ico".format(cwd)
@@ -142,6 +144,14 @@ class configForm(tkinter.Tk):
         self.logger.warning(("Directory Location: {}").format(
             self.directoryLocation))
 
+    def show_error(self, *args):
+        err = traceback.format_exception(*args)
+        # messagebox.showerror('Exception',err)
+        logging.warning("Exception Encountered: {}".format(err))
+        if messagebox.askyesno("Unstable State", "The application has entered an unstable state. It is recommended to quit. Do you want to quit?\nMore information about this error is in the log file."):
+            self.destroy()
+            os._exit
+
     def processFiles(self):
         try:
             self.directoryLocation
@@ -187,7 +197,6 @@ class configForm(tkinter.Tk):
             os.startfile(cwd)
 
     def csvTest(self):
-        raise NameError
         f = open(self.csvFileName, "rt")
         header = f.readline()
         header=header.strip()
@@ -207,9 +216,5 @@ class configForm(tkinter.Tk):
 
 
 if __name__ == '__main__':
-    try:
-        form = configForm()
-        form.mainloop()
-    except:
-        if messagebox.askyesno("Unstable State", "The application has entered an unstable state. It is recommended to quit. Do you want to quit?"):
-            os._exit
+    form = configForm()
+    form.mainloop()

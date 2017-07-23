@@ -38,7 +38,7 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
     resistance = resistorValue
     tolerance = resistorTolerance
     resistorInfo = getWholeValue(resistorValue)
-    resistorColors = getColorCode(resistorInfo[0],resistorInfo[1],tolerance)
+    resistorColors = getColorCode(resistorInfo[0], resistorInfo[1], tolerance)
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
     return resistorData
@@ -48,16 +48,34 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
 # A prefix is a str, representing the file prefix
 # ->
 # This functions generates the picture
+
+
 def generatePicture(resistorData, outputLocation, prefix="res-"):
+    multiplier = 500
     # Define fonts
     resistorFont = ImageFont.truetype("formata.otf", 133)
     resistorSymbolFont = ImageFont.truetype("cb.ttf", 300)
     # Define band coordinates
-    bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
-             ((0, 100), (0, 200), (100, 200), (100, 100)),
-             ((0, 200), (0, 300), (100, 300), (100, 200)),
-             ((0, 300), (0, 400), (100, 400), (100, 300)),
-             ((0, 400), (0, 5000), (100, 500), (100, 400))]
+    # bands = [((0, 0), (0.2*multiplier,0), (0.2*multiplier, 0.2*multiplier), (0,0.2*multiplier)),
+    #          ((0.2*multiplier, 0), (0.4*multiplier,0), (0.4*multiplier, 0.2*multiplier), (0.2,0.2*multiplier)),
+    #          ((0.4*multiplier, 0), (0.6*multiplier,0), (0.6*multiplier, 0.2*multiplier), (0.4,0.2*multiplier)),
+    #          ((0.6*multiplier, 0), (0.8*multiplier,0), (0.8*multiplier, 0.2*multiplier), (0.6,0.2*multiplier)),
+    #          ((0.8*multiplier, 0), (1*multiplier,0), (1*multiplier, 0.2*multiplier), (0.8,0.2*multiplier))]
+
+    bands = [((0, 0), (0, 0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier), (0.2 * multiplier, 0)),
+             ((0.2 * multiplier, 0), (0.4 * multiplier, 0), (0.4 * multiplier,
+                                                             0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier)),
+             ((0.4 * multiplier, 0), (0.6 * multiplier, 0), (0.6 * multiplier,
+                                                             0.2 * multiplier), (0.4 * multiplier, 0.2 * multiplier)),
+             ((0.6 * multiplier, 0), (0.8 * multiplier, 0), (0.8 * multiplier,
+                                                             0.2 * multiplier), (0.6 * multiplier, 0.2 * multiplier)),
+             ((0.8 * multiplier, 0), (1 * multiplier, 0), (1 * multiplier, 0.2 * multiplier), (0.8 * multiplier, 0.2 * multiplier))]
+
+    # bands = [((0, 0), (0, 100), (100, 100), (100, 0)),
+    #          ((100, 0), (200, 0), (200, 100), (100, 100)),
+    #          ((200, 0), (300, 0), (300, 100), (200, 100)),
+    #          ((300,0), (400, 0), (400, 100), (300, 100)),
+    #          ((400, 0), (500, 0), (500, 100), (400, 100))]
     # Define color dictionary
     resistorColors = {
         'black': (0, 0, 0),
@@ -78,25 +96,30 @@ def generatePicture(resistorData, outputLocation, prefix="res-"):
     background = (234, 234, 234)
 
     # Drawing
-    im = Image.new('RGB', (500, 500), background) # Defines canvas
+    im = Image.new('RGB', (multiplier, multiplier),
+                   background)  # Defines canvas
     draw = ImageDraw.Draw(im)
     resistorText = u"{}\u2126".format(resistorData[0][0])
     textWidth = draw.textsize(resistorText, font=resistorFont)
-    textLocation = 300 - textWidth[0] // 2
-    draw.text((textLocation, 336),
+    # print("({},{})".format(textWidth[0], 0.6*multiplier))
+    print(0.3*multiplier)
+    textLocation = (multiplier - textWidth[0]) // 2
+    draw.text((textLocation, 0.3*multiplier),
               resistorText, ieeeBlue, font=resistorFont)
-    resistorTextWidth = draw.textsize("Y", font=resistorSymbolFont)
-    resistorTextLocation = 300 - resistorTextWidth[0] // 2
-    draw.text((resistorTextLocation, 50), "Y",
+    resistorTextWidth = draw.textsize(".", font=resistorSymbolFont)
+    # print(resistorTextWidth)
+    resistorTextLocation = (multiplier - resistorTextWidth[0]) // 2
+    # print("({},{})".format(resistorTextLocation[0], 0.4*float(multiplier)))
+    draw.text((resistorTextLocation, 0.2*multiplier), ".",
               ieeeBlue, font=resistorSymbolFont)
     # draw = ImageDraw.Draw(resistorSymbol)
     for i in range(5):
         draw.polygon(bands[i], fill=resistorColors[resistorData[1][i]])
-    imageName = "{}{}".format(prefix,resistorData[0][0])
+    imageName = "{}{}".format(prefix, resistorData[0][0])
     saveLocation = "{}/{}.gif".format(outputLocation, imageName)
     im.save(saveLocation)
     if os.path.isfile(saveLocation):
-        return (True,saveLocation)
+        return (True, saveLocation)
     else:
         return False
 
@@ -110,10 +133,11 @@ def debug(message):
     elif DEBUG_ID == 1:
         print(message)
 
-
  # -> picture
 # This function actually reads the csv data and runs the functions necessary to
 # generate the output
+
+
 def main():
     try:
         csvLocation = sys.argv[1]
@@ -130,12 +154,13 @@ def main():
                 resistorColors = row[3:8]
                 resistorData = getResistorData(
                     resistorValue, resistorTolerance, numBands, resistorColors)
-                generatePicture(resistorData,cwd, "resistor_")
+                generatePicture(resistorData, cwd, "resistor_")
         finally:
             f.close()
-    except: # Deals with bad input
+    except:  # Deals with bad input
         print("Usage: resistorPicture.py FILE.csv")
         sys.exit()
+
 
 if __name__ == "__main__":
     main()

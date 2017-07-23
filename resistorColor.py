@@ -21,7 +21,6 @@ def getColorCode(value,exp,tolerance=5):
     elif tolerance == 1:
         toleranceColor = 1
     if int(values[1]) == 0 and len(values[0]) != 1:
-        print("test")
         lengthCode = len(values[0])
         if lengthCode == 3:
             band1Value = int(values[0][0])
@@ -43,7 +42,7 @@ def getColorCode(value,exp,tolerance=5):
             band2Value = int(values[1])
             band3Value = exp-1
             band4Value = toleranceColor
-            band5Value = 10
+            band5Value = 7
         elif len(values[1]) == 2:
             band2Value = int(values[1][0])
             band3Value = int(values[1][1])
