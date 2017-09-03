@@ -38,9 +38,9 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
     resistance = resistorValue
     tolerance = resistorTolerance
     resistorInfo = getWholeValue(resistorValue)
-    if numBands = 4:
+    if numBands == 4:
         resistorColors = getFourBands(resistorInfo[0], resistorInfo[1], tolerance)
-    elif numBands = 5:
+    elif numBands == 5:
         resistorColors = getFiveBands(resistorInfo[0], resistorInfo[1], tolerance)
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
