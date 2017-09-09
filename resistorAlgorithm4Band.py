@@ -27,6 +27,11 @@ userInputNumBands = int(input("Enter the number of bands: "))
 
 # Add each digit in userInputResistorValue to string in a list
 oldResistorValueList = list(str(userInputResistorValue))
+print (len(oldResistorValueList))
+
+# Add a '0' to fix input values less than 1 rounded to 1 decimal place
+if userInputResistorValue < 1 and len(oldResistorValueList) == 3:
+    oldResistorValueList.append('0')
 
 # Create a new list with digits other than 0 and a decimal point
 # Determine if userInputResistorValue is a decimal number
@@ -37,7 +42,12 @@ for item in oldResistorValueList:
         DECIMAL = True
     else:
         newResistorValueList.append(int(item))
-        DECIMAL = False
+
+print (userInputResistorValue)
+print (type(userInputResistorValue))
+print (oldResistorValueList)
+print (newResistorValueList)
+print (DECIMAL)
 
 # Executes if 4 band color code is requested
 if userInputNumBands == 4:
