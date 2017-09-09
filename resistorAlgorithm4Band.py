@@ -42,10 +42,6 @@ for item in oldResistorValueList:
     else:
         newResistorValueList.append(int(item))
 
-print (oldResistorValueList)
-print (newResistorValueList)
-print (DECIMAL)
-
 # Executes if 4 band color code is requested
 if userInputNumBands == 4:
     i = 0 # first band iterator
