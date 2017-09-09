@@ -16,14 +16,16 @@ GOLD   = ['gold', None, None, None, 0.1, "5%"]
 SILVER = ['silver', None, None, None, 0.01, "10%"]
 RESISTORCOLORS = [BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, GREY, WHITE, GOLD, SILVER]
 
-#currentColorBandList = []
 currentColorBandDict = {}
 newResistorValueList = []
-DECIMAL = None
 
-# Ask for user input of resistor value and number of bands
+# Ask for user input of resistor value, number of bands, and tolerance value
 userInputResistorValue = float(input("Enter the resistor value: "))
-userInputNumBands = int(input("Enter the number of bands: "))
+#userInputNumBands = int(input("Enter the number of bands: "))
+userInputNumBands = 4
+print ("Tolerance Values: 0.05% | 0.1% | 0.25% | 0.5% | 1% | 2% | 5% | 10% | 20%")
+#userInputToleranceValue = str(input("Enter the tolerance value: "))
+userInputToleranceValue = '5%'
 
 # Add each digit in userInputResistorValue to string in a list
 oldResistorValueList = list(str(userInputResistorValue))
@@ -38,7 +40,6 @@ for item in oldResistorValueList:
     if item == '.':
         if newResistorValueList[0] == 0:
             del newResistorValueList[0]
-        DECIMAL = True
     else:
         newResistorValueList.append(int(item))
 
@@ -47,18 +48,15 @@ if userInputNumBands == 4:
     i = 0 # first band iterator
     j = 0 # second band iterator
     k = 0 # multiplier iterator
+    l = 0 # tolerance iterator
 
     # Get firstBandNum and firstBandColor
     while i <= 11:
         if RESISTORCOLORS[i][1] == newResistorValueList[0]:
-            #currentColorBandList.append(RESISTORCOLORS[i][0])
             currentColorBandDict['firstBandColor'] = RESISTORCOLORS[i][0]
-            if DECIMAL == True and userInputResistorValue < 1:
-            #if userInputResistorValue < 1:
+            #if DECIMAL == True and userInputResistorValue < 1:
+            if userInputResistorValue < 1:
                 firstBandNum = oldResistorValueList[2]
-            elif DECIMAL == True and userInputResistorValue >= 1 and userInputResistorValue < 10:
-            #elif userInputResistorValue >= 1 and userInputResistorValue < 10:
-                firstBandNum = oldResistorValueList[0]
             else:
                 firstBandNum = oldResistorValueList[0]
         i += 1
@@ -66,13 +64,10 @@ if userInputNumBands == 4:
     # Get secondBandNum and secondBandColor
     while j <= 11:
         if RESISTORCOLORS[j][2] == newResistorValueList[1]:
-            #currentColorBandList.append(RESISTORCOLORS[j][0])
             currentColorBandDict['secondBandColor'] = RESISTORCOLORS[j][0]
-            if DECIMAL == True and userInputResistorValue < 1:
-            #if userInputResistorValue < 1:
+            if userInputResistorValue < 1:
                 secondBandNum = oldResistorValueList[3]
-            elif DECIMAL == True and userInputResistorValue >= 1 and userInputResistorValue < 10:
-            #elif userInputResistorValue >= 1 and userInputResistorValue < 10:
+            elif userInputResistorValue >= 1 and userInputResistorValue < 10:
                 secondBandNum = oldResistorValueList[2]
             else:
                 secondBandNum = oldResistorValueList[1]
@@ -85,10 +80,14 @@ if userInputNumBands == 4:
     # Get thirdBandColor
     while k <= 11:
         if RESISTORCOLORS[k][4] == multiplier:
-            #currentColorBandList.append(RESISTORCOLORS[k][0])
             currentColorBandDict['thirdBandColor'] = RESISTORCOLORS[k][0]
         k += 1
 
+    # Get fourthBandColor
+    while l <= 11:
+        if RESISTORCOLORS[l][5] == userInputToleranceValue:
+            currentColorBandDict['tolerance'] = RESISTORCOLORS[l][0]
+        l += 1
+
 # Display current color band in the terminal
-#print (currentColorBandList)
 print (currentColorBandDict)
