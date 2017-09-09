@@ -1,5 +1,5 @@
 # 2 DECIMAL POINT
-9-3-17
+#9-3-17
 
 # Initialize resistor colors
 BLACK  = ['black', 0, 0, 0, 1, None]
@@ -27,10 +27,9 @@ userInputNumBands = int(input("Enter the number of bands: "))
 
 # Add each digit in userInputResistorValue to string in a list
 oldResistorValueList = list(str(userInputResistorValue))
-print (len(oldResistorValueList))
 
 # Add a '0' to fix input values less than 1 rounded to 1 decimal place
-if userInputResistorValue < 1 and len(oldResistorValueList) == 3:
+if userInputResistorValue < 10 and len(oldResistorValueList) == 3:
     oldResistorValueList.append('0')
 
 # Create a new list with digits other than 0 and a decimal point
@@ -43,8 +42,6 @@ for item in oldResistorValueList:
     else:
         newResistorValueList.append(int(item))
 
-print (userInputResistorValue)
-print (type(userInputResistorValue))
 print (oldResistorValueList)
 print (newResistorValueList)
 print (DECIMAL)
@@ -61,8 +58,10 @@ if userInputNumBands == 4:
             #currentColorBandList.append(RESISTORCOLORS[i][0])
             currentColorBandDict['firstBandColor'] = RESISTORCOLORS[i][0]
             if DECIMAL == True and userInputResistorValue < 1:
+            #if userInputResistorValue < 1:
                 firstBandNum = oldResistorValueList[2]
             elif DECIMAL == True and userInputResistorValue >= 1 and userInputResistorValue < 10:
+            #elif userInputResistorValue >= 1 and userInputResistorValue < 10:
                 firstBandNum = oldResistorValueList[0]
             else:
                 firstBandNum = oldResistorValueList[0]
@@ -74,8 +73,10 @@ if userInputNumBands == 4:
             #currentColorBandList.append(RESISTORCOLORS[j][0])
             currentColorBandDict['secondBandColor'] = RESISTORCOLORS[j][0]
             if DECIMAL == True and userInputResistorValue < 1:
+            #if userInputResistorValue < 1:
                 secondBandNum = oldResistorValueList[3]
             elif DECIMAL == True and userInputResistorValue >= 1 and userInputResistorValue < 10:
+            #elif userInputResistorValue >= 1 and userInputResistorValue < 10:
                 secondBandNum = oldResistorValueList[2]
             else:
                 secondBandNum = oldResistorValueList[1]
@@ -83,11 +84,11 @@ if userInputNumBands == 4:
 
     # Calculate multiplier value
     firstAndSecondBandNum = float(firstBandNum + secondBandNum)
-    mulitplier = userInputResistorValue / firstAndSecondBandNum
+    multiplier = round((userInputResistorValue / firstAndSecondBandNum), 3)
 
     # Get thirdBandColor
     while k <= 11:
-        if RESISTORCOLORS[k][4] == mulitplier:
+        if RESISTORCOLORS[k][4] == multiplier:
             #currentColorBandList.append(RESISTORCOLORS[k][0])
             currentColorBandDict['thirdBandColor'] = RESISTORCOLORS[k][0]
         k += 1
