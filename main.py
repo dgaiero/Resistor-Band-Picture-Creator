@@ -130,7 +130,7 @@ class configForm(tkinter.Tk):
         self.logger.addHandler(fh)
         self.logger.warning(
             "Resistor Picture Generator\n--------------------------------\n"
-            "Created by Dominic Gaiero for the CP IEEE SB website\n--------------------------------\n")
+            "Created by Dominic Gaiero, Josiah Pang, and Russell Caletena for the CP IEEE SB website\n--------------------------------\n")
         self.logger.warning("Log File located at: {}".format(logFileName))
 
         redir = RedirectText(self.logger.warning)
