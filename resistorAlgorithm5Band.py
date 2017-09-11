@@ -43,9 +43,6 @@ for item in oldResistorValueList:
     else:
         newResistorValueList.append(int(item))
 
-print (oldResistorValueList)
-print (newResistorValueList)
-
 # Executes if 4 band color code is requested
 if userInputNumBands == 5:
     i = 0 # first band iterator
@@ -87,16 +84,9 @@ if userInputNumBands == 5:
                 thirdBandNum = oldResistorValueList[2]
         k += 1
 
-    print (firstBandNum)
-    print (secondBandNum)
-    print (thirdBandNum)
-
     # Calculate multiplier value
     firstSecondAndThirdBandNum = float(firstBandNum + secondBandNum + thirdBandNum)
     multiplier = round((userInputResistorValue / firstSecondAndThirdBandNum), 3)
-
-    print (firstSecondAndThirdBandNum)
-    print (multiplier)
 
     # Get fourthBandColor
     while l <= 11:
