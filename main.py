@@ -40,6 +40,7 @@ class TextHandler(logging.Handler):
         # This is necessary because we can't modify the Text from other threads
         self.text.after(0, append)
 
+
 class RedirectText(object):
 
     def __init__(self, text_ctrl):
@@ -51,6 +52,7 @@ class RedirectText(object):
 
     def flush(self):
         pass
+
 
 class configForm(tkinter.Tk):
 
@@ -67,7 +69,7 @@ class configForm(tkinter.Tk):
         self.resizable(0, 0)
         self.wm_title('Resistor Config')
         self.report_callback_exception = self.show_error
-
+        # self.call('tk', 'scaling', 1.75)
         cwd = os.getcwd()
         iconLocation = "{}\\icon.ico".format(cwd)
         self.iconbitmap(r'{}'.format(iconLocation))
@@ -78,7 +80,6 @@ class configForm(tkinter.Tk):
         self.frame2 = tkinter.Frame(self)
         self.frame2.pack(side="left")
         # self.frame2.grid(row = 3, column = 0, rowspan = 3, columnspan = 2, sticky = "ES")
-
 
         self.filePrefixLbl = tkinter.Label(self.frame1, text="File Prefix:")
         self.filePrefixLbl.grid(
@@ -93,7 +94,7 @@ class configForm(tkinter.Tk):
             row=1, column=0, sticky='E', padx=5, pady=2)
 
         self.multiplierTxt = tkinter.Entry(self.frame1)
-        self.multiplierTxt.insert(0,"500")
+        self.multiplierTxt.insert(0, "500")
         self.multiplierTxt.grid(
             row=1, column=1, sticky="W", pady=3)
 
@@ -110,7 +111,8 @@ class configForm(tkinter.Tk):
             self.frame1, text="Process Files", command=self.processFiles)
         self.processFile.grid(row=3, column=0, sticky='WN', padx=5, pady=2)
 
-        self.logText = ScrolledText.ScrolledText(self.frame2, state='disabled', width  = 145,)
+        self.logText = ScrolledText.ScrolledText(
+            self.frame2, state='disabled', width=145,)
         self.logText.configure(font='TkFixedFont')
         self.logText.grid(row=1, column=1, sticky='nesw', padx=5, pady=2)
 
@@ -121,7 +123,10 @@ class configForm(tkinter.Tk):
         self.logger = logging.getLogger()
         self.logger.addHandler(text_handler)
         currTime = int(time.time())
-        logFileName = "{}\\logs\\CPIEEE_RESISTOR_{}.log".format(os.getcwd(),currTime)
+        if(not(os.path.isdir("{}\\logs".format(os.getcwd())))):
+            os.makedirs("{}\\logs".format(os.getcwd()))
+        logFileName = "{}\\logs\\CPIEEE_RESISTOR_{}.log".format(
+            os.getcwd(), currTime)
         fh = logging.FileHandler(logFileName, 'a')
         formatter = logging.Formatter('%(asctime)s %(message)s')
         fh.setFormatter(formatter)
@@ -141,6 +146,9 @@ class configForm(tkinter.Tk):
             self.filename = filedialog.askopenfilename(
                 initialdir="/", title="Select file", filetypes=(("csv files", "*.csv"), ("all files", "*.*")))
             self.csvFileName = self.filename
+            if self.csvFileName == "":
+                self.logger.warning("Invalid File Name. Please re-select")
+                return
             csvFile = ("CSV Location: {}".format(self.csvFileName))
             self.logger.warning("CSV Location: {}".format(self.csvFileName))
             self.csvTest()
@@ -152,6 +160,7 @@ class configForm(tkinter.Tk):
         # print(self.directoryLocation)
         self.logger.warning(("Directory Location: {}").format(
             self.directoryLocation))
+        # print(self.directoryLocation)
 
     def show_error(self, *args):
         err = traceback.format_exception(*args)
@@ -184,20 +193,24 @@ class configForm(tkinter.Tk):
             for row in reader:
                 resistorValue = row[0]
                 resistorTolerance = float(row[1])
-                numBands = row[2]
+                numBands = int(row[2])
                 resistorData = getResistorData(
                     resistorValue, resistorTolerance, numBands)
                 self.logger.warning(
                     "--------------------------------\nGenerated data for:")
                 self.logger.warning(
-                    "|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|".format("Value","Tolerence","Band 1","Band 2","Band 3","Band 4","Band 5")
+                    "|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|{:>8s}|".format(
+                        "Value", "Tolerence", "Band 1", "Band 2", "Band 3", "Band 4", "Band 5")
                 )
                 self.logger.warning(
-                    "|{:>8}|{:>8}%|{:>8}|{:>8}|{:>8}|{:>8}|{:>8}|".format(resistorData[0][0],resistorData[0][1],resistorData[1][0],resistorData[1][1],resistorData[1][2],resistorData[1][3],resistorData[1][4])
+                    "|{:>8}|{:>8}%|{:>8}|{:>8}|{:>8}|{:>8}|{:>8}|".format(
+                        resistorData[0][0], resistorData[0][1], resistorData[1][0], resistorData[1][1], resistorData[1][2], resistorData[1][3], resistorData[1][4])
                 )
-                pictureStatus = generatePicture(resistorData, cwd, multiplier, prefix)
+                pictureStatus = generatePicture(
+                    resistorData, cwd, multiplier, prefix)
                 if pictureStatus[0]:
-                    self.logger.warning("Wrote file: {}".format(pictureStatus[1]))
+                    self.logger.warning(
+                        "Wrote file: {}".format(pictureStatus[1]))
         finally:
             f.close()
         self.logger.warning("--------------------------------\n")
@@ -209,14 +222,14 @@ class configForm(tkinter.Tk):
     def csvTest(self):
         f = open(self.csvFileName, "rt")
         header = f.readline()
-        header=header.strip()
+        header = header.strip()
         # self.logger.warning("CSV Header:\n{}".format(header))
         headerMore = header.split(",")
         headerString = '|'
         # print(tuple(headerMore))
         for i in range(len(headerMore)):
-            headerString+="{:>10s}|"
-        headerString=headerString.strip()
+            headerString += "{:>10s}|"
+        headerString = headerString.strip()
         self.logger.warning(headerString.format(*tuple(headerMore)))
         line1 = f.readline().strip()
         line1More = line1.split(",")

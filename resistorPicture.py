@@ -19,7 +19,7 @@ By: Dominic Gaiero
 
 # Import Libraries
 from PIL import Image, ImageDraw, ImageFont
-from resistorColor import *
+import resistorColor
 import os
 import csv
 import sys
@@ -37,15 +37,15 @@ DEBUG_ID = 0
 def getResistorData(resistorValue, resistorTolerance, numBands):
     resistance = resistorValue
     tolerance = resistorTolerance
-    resistorInfo = getWholeValue(resistorValue)
+    resistorInfo = resistorColor.getWholeValue(resistorValue)
     if numBands == 4:
-        resistorColors = getFourBands(resistorInfo[0], resistorInfo[1], tolerance)
+        resistorColors = resistorColor.getFourBands(
+            resistorInfo[0], resistorTolerance)
     elif numBands == 5:
-        resistorColors = getFiveBands(resistorInfo[0], resistorInfo[1], tolerance)
+        resistorColors = ("none", "none", "none", "none", "none")
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
     return resistorData
-
 
 
 # A resistorData is an arraylist, representing the resistor value, tolerance and number of bands
@@ -57,8 +57,8 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
 
 def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
     # Define fonts
-    resistorFont = ImageFont.truetype("formata.otf", int(multiplier*0.3))
-    resistorSymbolFont = ImageFont.truetype("cb.ttf", int(multiplier*0.8))
+    resistorFont = ImageFont.truetype("formata.otf", int(multiplier * 0.3))
+    resistorSymbolFont = ImageFont.truetype("cb.ttf", int(multiplier * 0.8))
     # Define band coordinates
     bands = [((0, 0), (0, 0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier), (0.2 * multiplier, 0)),
              ((0.2 * multiplier, 0), (0.4 * multiplier, 0), (0.4 * multiplier,
@@ -95,15 +95,14 @@ def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
     resistorText = u"{}\u2126".format(resistorData[0][0])
     textWidth = draw.textsize(resistorText, font=resistorFont)
     # print("({},{})".format(textWidth[0], 0.6*multiplier))
-    print(0.3*multiplier)
     textLocation = (multiplier - textWidth[0]) // 2
-    draw.text((textLocation, 0.3*multiplier),
+    draw.text((textLocation, 0.3 * multiplier),
               resistorText, ieeeBlue, font=resistorFont)
     resistorTextWidth = draw.textsize(".", font=resistorSymbolFont)
     # print(resistorTextWidth)
     resistorTextLocation = (multiplier - resistorTextWidth[0]) // 2
     # print("({},{})".format(resistorTextLocation[0], 0.4*float(multiplier)))
-    draw.text((resistorTextLocation, 0.2*multiplier), ".",
+    draw.text((resistorTextLocation, 0.2 * multiplier), ".",
               ieeeBlue, font=resistorSymbolFont)
     # draw = ImageDraw.Draw(resistorSymbol)
     for i in range(5):
