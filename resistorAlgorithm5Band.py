@@ -81,7 +81,10 @@ if userInputNumBands == 5:
     while k <= 11:
         if RESISTORCOLORS[k][3] == newResistorValueList[2]:
             currentColorBandDict['thirdBandColor'] = RESISTORCOLORS[k][0]
-            thirdBandNum = oldResistorValueList[2]
+            if oldResistorValueList[2] == '.':
+                thirdBandNum = oldResistorValueList[3]
+            else:
+                thirdBandNum = oldResistorValueList[2]
         k += 1
 
     print (firstBandNum)
