@@ -124,7 +124,7 @@ class configForm(tkinter.Tk):
         self.logger.addHandler(text_handler)
         currTime = int(time.time())
         if(not(os.path.isdir("{}\\logs".format(os.getcwd())))):
-            os.makedirs("{}\\logs".format(os.getcwd()))
+            os.makedirs("{}\\logs".format(os.Bgetcwd()))
         logFileName = "{}\\logs\\CPIEEE_RESISTOR_{}.log".format(
             os.getcwd(), currTime)
         fh = logging.FileHandler(logFileName, 'a')
@@ -138,8 +138,8 @@ class configForm(tkinter.Tk):
             "Created by Dominic Gaiero, Josiah Pang, and Russell Caletena for the CP IEEE SB website\n--------------------------------\n")
         self.logger.warning("Log File located at: {}".format(logFileName))
 
-        redir = RedirectText(self.logger.warning)
-        sys.stdout = redir
+        # redir = RedirectText(self.logger.warning)
+        # sys.stdout = redir
 
     def openCSV(self):
         if messagebox.askyesno("Open CSV", "The CSV file should be formatted as follows\nvalue,tolerence,num. bands.\nIf this is true, click 'Yes'. Otherwise click 'No'."):

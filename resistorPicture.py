@@ -42,7 +42,8 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
         resistorColors = resistorColor.getFourBands(
             resistorInfo[0], resistorTolerance)
     elif numBands == 5:
-        resistorColors = ("none", "none", "none", "none", "none")
+        resistorColors = resistorColor.getFiveBands(
+            resistorInfo[0], resistorTolerance)
     resistorData = [[resistorValue, numBands, tolerance], resistorColors]
     debug(resistorData)
     return resistorData
@@ -59,6 +60,7 @@ def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
     # Define fonts
     resistorFont = ImageFont.truetype("formata.otf", int(multiplier * 0.3))
     resistorSymbolFont = ImageFont.truetype("cb.ttf", int(multiplier * 0.8))
+    ieee_custom_font = ImageFont.truetype("ieee_custom_font.ttf", int(multiplier * 0.8))
     # Define band coordinates
     bands = [((0, 0), (0, 0.2 * multiplier), (0.2 * multiplier, 0.2 * multiplier), (0.2 * multiplier, 0)),
              ((0.2 * multiplier, 0), (0.4 * multiplier, 0), (0.4 * multiplier,
@@ -93,6 +95,8 @@ def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
                    background)  # Defines canvas
     draw = ImageDraw.Draw(im)
     resistorText = u"{}\u2126".format(resistorData[0][0])
+    # ieee_logo = u"\uE804"
+    # draw.text((0.3*multiplier, 0.3 * multiplier),ieee_logo, ieeeBlue, font=ieee_custom_font)
     textWidth = draw.textsize(resistorText, font=resistorFont)
     # print("({},{})".format(textWidth[0], 0.6*multiplier))
     textLocation = (multiplier - textWidth[0]) // 2
