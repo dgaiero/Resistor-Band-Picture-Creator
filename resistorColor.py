@@ -42,7 +42,6 @@ def getFourBands(userInputResistorValue, userInputToleranceValue=5):
         oldResistorValueList.append('0')
 
     # Create a new list with digits other than 0 and a decimal point
-    # Determine if userInputResistorValue is a decimal number
     for item in oldResistorValueList:
         if item == '.':
             if newResistorValueList[0] == 0:
