@@ -197,7 +197,6 @@ def getFiveBands(userInputResistorValue, userInputToleranceValue=5):
     return bands
 
 
-
 # A value is a string, representing the un-normalized resistor value
 # ->
 # This function takes a value and returns a normalized value and an exponent

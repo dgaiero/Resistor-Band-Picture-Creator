@@ -58,7 +58,7 @@ def getResistorData(resistorValue, resistorTolerance, numBands):
 
 def generatePicture(resistorData, outputLocation, multiplier, prefix="res-"):
     # Define fonts
-    resistorFont = ImageFont.truetype("formata.otf", int(multiplier * 0.3))
+    resistorFont = ImageFont.truetype("Formata-Medium-resistorApp.ttf", int(multiplier * 0.25))
     resistorSymbolFont = ImageFont.truetype("cb.ttf", int(multiplier * 0.8))
     ieee_custom_font = ImageFont.truetype("ieee_custom_font.ttf", int(multiplier * 0.8))
     # Define band coordinates

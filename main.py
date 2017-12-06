@@ -117,6 +117,9 @@ class configForm(tkinter.Tk):
         self.logText.grid(row=1, column=1, sticky='nesw', padx=5, pady=2)
 
         # Create textLogger
+        threading.Thread(target=self.loggingHandler).start()
+
+    def loggingHandler(self):
         text_handler = TextHandler(self.logText)
 
         # Add the handler to logger
@@ -138,8 +141,8 @@ class configForm(tkinter.Tk):
             "Created by Dominic Gaiero, Josiah Pang, and Russell Caletena for the CP IEEE SB website\n--------------------------------\n")
         self.logger.warning("Log File located at: {}".format(logFileName))
 
-        # redir = RedirectText(self.logger.warning)
-        # sys.stdout = redir
+        redir = RedirectText(self.logger.warning)
+        sys.stdout = redir
 
     def openCSV(self):
         if messagebox.askyesno("Open CSV", "The CSV file should be formatted as follows\nvalue,tolerence,num. bands.\nIf this is true, click 'Yes'. Otherwise click 'No'."):
@@ -238,6 +241,10 @@ class configForm(tkinter.Tk):
         self.logger.warning("--------------------------------\n")
 
 
-if __name__ == '__main__':
+def main():
     form = configForm()
     form.mainloop()
+
+
+if __name__ == '__main__':
+    main()
