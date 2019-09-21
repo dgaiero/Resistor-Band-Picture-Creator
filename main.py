@@ -17,6 +17,8 @@ import logging.handlers
 import copy
 import traceback
 from resistorPicture import *
+from shutil import copyfile
+import os
 
 
 class TextHandler(logging.Handler):
@@ -117,7 +119,8 @@ class configForm(tkinter.Tk):
         self.logText.grid(row=1, column=1, sticky='nesw', padx=5, pady=2)
 
         # Create textLogger
-        threading.Thread(target=self.loggingHandler).start()
+        # threading.Thread(target=self.loggingHandler).start()
+        self.loggingHandler()
 
     def loggingHandler(self):
         text_handler = TextHandler(self.logText)
@@ -127,10 +130,11 @@ class configForm(tkinter.Tk):
         self.logger.addHandler(text_handler)
         currTime = int(time.time())
         if(not(os.path.isdir("{}\\logs".format(os.getcwd())))):
-            os.makedirs("{}\\logs".format(os.Bgetcwd()))
-        logFileName = "{}\\logs\\CPIEEE_RESISTOR_{}.log".format(
-            os.getcwd(), currTime)
-        fh = logging.FileHandler(logFileName, 'a')
+            os.makedirs("{}\\logs".format(os.getcwd()))
+        self.logFileName = "CPIEEE_RESISTOR_{}.log".format(currTime)
+        self.logFileFullPath = "{}\\logs\\{}".format(
+            os.getcwd(), self.logFileName)
+        fh = logging.FileHandler(self.logFileFullPath, 'a')
         formatter = logging.Formatter('%(asctime)s %(message)s')
         fh.setFormatter(formatter)
         fh.setLevel(logging.WARNING)
@@ -138,8 +142,10 @@ class configForm(tkinter.Tk):
         self.logger.addHandler(fh)
         self.logger.warning(
             "Resistor Picture Generator\n--------------------------------\n"
-            "Created by Dominic Gaiero, Josiah Pang, and Russell Caletena for the CP IEEE SB website\n--------------------------------\n")
-        self.logger.warning("Log File located at: {}".format(logFileName))
+            "Created by Dominic Gaiero and Russell Caletena for the CP IEEE SB (https://calpolyieee.com)\n--------------------------------\n")
+        self.logger.warning(
+            "Log File located at: {}".format(self.logFileFullPath))
+
 
         redir = RedirectText(self.logger.warning)
         sys.stdout = redir
@@ -161,6 +167,7 @@ class configForm(tkinter.Tk):
         self.directoryLocation = askdirectory(
             parent=self, initialdir="/", title='Please select a directory')
         # print(self.directoryLocation)
+        # print (test)
         self.logger.warning(("Directory Location: {}").format(
             self.directoryLocation))
         # print(self.directoryLocation)
@@ -168,8 +175,13 @@ class configForm(tkinter.Tk):
     def show_error(self, *args):
         err = traceback.format_exception(*args)
         # messagebox.showerror('Exception',err)
-        logging.warning("Exception Encountered: {}".format(err))
-        if messagebox.askyesno("Unstable State", "The application has entered an unstable state. It is recommended to quit. Do you want to quit?\nMore information about this error is in the log file."):
+        print("--------------------------------")
+        logging.warning("Exception Encountered:")
+        err_message = ''
+        for error in err:
+            err_message += error
+        print(err_message)
+        if messagebox.askyesno("Unstable State", "The application has entered an unstable state. It is recommended to quit. Do you want to quit?\n{}".format(err_message)):
             self.destroy()
             os._exit
 
@@ -219,6 +231,7 @@ class configForm(tkinter.Tk):
         self.logger.warning("--------------------------------\n")
         self.logger.warning("Done\n")
         self.logger.warning("--------------------------------\n")
+        copyfile(self.logFileFullPath, os.path.join(self.directoryLocation, self.logFileName))
         if messagebox.askyesno("Open output folder", "Do you want to open the folder?"):
             os.startfile(cwd)
 
